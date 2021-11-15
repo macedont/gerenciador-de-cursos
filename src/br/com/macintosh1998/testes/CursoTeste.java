@@ -12,6 +12,8 @@ public class CursoTeste {
         cursos.setAula(new Aula("modelando coleções", 21));
         cursos.setAula(new Aula("criando aula", 20));
 
+        //cursos.getAulas().add(new Aula("teste", 21)); irá disparar um exception por causa do unmodifiableList utilizado no getAulas conceito de imutabilidade
+
         System.out.println(cursos.getAulas().get(2));
 
     }
