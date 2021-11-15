@@ -24,7 +24,7 @@ public class ListaDeAula {
             System.out.println("Titulo: " + aux.getTitulo() + "\nTempo: " + aux.getTempo());
         }
 
-        Collections.sort(aulas, Comparator.comparing(Aula::getTempo));
+        aulas.sort(Comparator.comparing(Aula::getTempo));
 
         for (Aula aux: aulas) {
             System.out.println("Titulo: " + aux.getTitulo() + "\nTempo: " + aux.getTempo());
