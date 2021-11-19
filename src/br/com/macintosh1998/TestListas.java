@@ -1,7 +1,10 @@
 package br.com.macintosh1998;
 
+import br.com.macintosh1998.classes.Aluno;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Set;
 
 public class TestListas {
 

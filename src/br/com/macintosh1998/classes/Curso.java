@@ -1,14 +1,13 @@
 package br.com.macintosh1998.classes;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Curso {
 
     private String nome;
     private String instrutor;
     private List<Aula> aulas = new ArrayList<Aula>();
+    private Set<Aluno> aluno = new HashSet<Aluno>();
 
     public Curso(String nome, String instrutor){
         this.nome = nome;
@@ -38,5 +37,11 @@ public class Curso {
     @Override
     public String toString() {
         return "Curso: " + this.nome + "\ninstrutor: " + this.instrutor + "\nnum Aulas: " + getAulas().size() + "\ntempo total: " + getTempoTotal();
+    }
+
+    public void matricula(Aluno aluno){this.aluno.add(aluno);}
+
+    public Set<Aluno> getAlunos(){
+        return Collections.unmodifiableSet(this.aluno);
     }
 }
