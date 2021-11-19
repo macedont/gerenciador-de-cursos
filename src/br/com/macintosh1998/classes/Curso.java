@@ -8,6 +8,7 @@ public class Curso {
     private String instrutor;
     private List<Aula> aulas = new ArrayList<Aula>();
     private Set<Aluno> aluno = new LinkedHashSet<Aluno>();
+    private Map<Integer, Aluno> matriculaAluno = new LinkedHashMap<>();
 
     public Curso(String nome, String instrutor){
         this.nome = nome;
@@ -39,7 +40,10 @@ public class Curso {
         return "Curso: " + this.nome + "\ninstrutor: " + this.instrutor + "\nnum Aulas: " + getAulas().size() + "\ntempo total: " + getTempoTotal();
     }
 
-    public void matricula(Aluno aluno){this.aluno.add(aluno);}
+    public void matricula(Aluno aluno){
+        this.aluno.add(aluno);
+        this.matriculaAluno.put(aluno.getNumMatricula(), aluno);
+    }
 
     public Set<Aluno> getAlunos(){
         return Collections.unmodifiableSet(this.aluno);
@@ -47,5 +51,11 @@ public class Curso {
 
     public boolean alunoEstaMatriculado(Aluno aluno){
         return this.aluno.contains(aluno);
+    }
+
+    public Aluno getAlunoMatricula(int numero) {
+        if(!matriculaAluno.containsKey(numero))
+            throw new NoSuchElementException("não existe esse aluno com essa matricula");
+        return matriculaAluno.get(numero);
     }
 }
